@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Proyecto_PMMD</string>
+    <string name="text_started_title">BIENVENIDO.</string>
+    <string name="description_img">imagen login</string>
+    <string name="text_btn_register">REGISTRARSE</string>
+    <string name="text_btn_login">Login</string>
 </resources>
