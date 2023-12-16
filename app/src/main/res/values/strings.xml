@@ -15,4 +15,12 @@
     <string name="edit_text_username_register">Introduce tu usuario</string>
     <string name="edit_text_password_register">Introduce tu contraseña</string>
     <string name="edit_text_confirm_password_register">Confirma tu contraseña</string>
+    <string name="descripcion_add">descripcion boton</string>
+    <string name="txt_name">Nombre Digimon</string>
+    <string name="descripcion_img">descripcion imagen</string>
+    <string name="txt_Level">Level</string>
+    <string name="txt_Type">Type</string>
+    <string name="txt_Attribute">Attribute</string>
+    <string name="descripcion_edit">descripcion boton</string>
+    <string name="descripcion_delete">descripcion boton</string>
 </resources>
