@@ -2,6 +2,17 @@
     <string name="app_name">Proyecto_PMMD</string>
     <string name="text_started_title">BIENVENIDO.</string>
     <string name="description_img">imagen login</string>
-    <string name="text_btn_register">REGISTRARSE</string>
+    <!--Login fragment-->
+    <string name="text_login_title">Iniciar Sesion.</string>
+    <string name="edit_text_username_login">Introduce tu email o usuario</string>
+    <string name="edit_text_password_login">Introduce tu contraseña</string>
     <string name="text_btn_login">Login</string>
+    <!--Register fragment-->
+    <string name="text_register_title">Crear una cuenta nueva</string>
+    <string name="text_btn_register">REGISTRARSE</string>
+    <string name="edit_text_fullname_register">Introduce tu nombre completo</string>
+    <string name="edit_text_email_register">Introduce tu email</string>
+    <string name="edit_text_username_register">Introduce tu usuario</string>
+    <string name="edit_text_password_register">Introduce tu contraseña</string>
+    <string name="edit_text_confirm_password_register">Confirma tu contraseña</string>
 </resources>

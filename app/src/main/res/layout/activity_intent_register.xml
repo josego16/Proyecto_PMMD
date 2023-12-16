@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_light"
+    tools:context=".fragments.ActivityIntentRegister">
+
+    <LinearLayout
+        android:id="@+id/id_layout_fragment_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:id="@+id/id_text_title_register"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/text_register_title"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/id_et_full_name_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:autofillHints=""
+            android:drawableStart="@drawable/ic_account"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_text_fullname_register"
+            android:inputType="text"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            android:textColorHint="#795548" />
+
+        <EditText
+            android:id="@+id/id_et_email_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:autofillHints="emailAddress"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_text_email_register"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColorHint="#795548" />
+
+        <EditText
+            android:id="@+id/id_et_username_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:autofillHints="emailAddress"
+            android:drawableStart="@drawable/ic_circle_account"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_text_username_register"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColorHint="#795548" />
+
+        <EditText
+            android:id="@+id/id_et_password_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:autofillHints="password"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_text_password_register"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="#795548" />
+
+        <EditText
+            android:id="@+id/id_et_confirm_password_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:autofillHints="password"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_text_confirm_password_register"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="#795548" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

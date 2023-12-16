@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_light"
+    tools:context=".fragments.ActivityIntentLogin">
+
+    <LinearLayout
+        android:id="@+id/id_layout_fragment_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/id_text_title_login"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/text_login_title"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/id_et_username_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:autofillHints=""
+            android:drawableStart="@drawable/ic_circle_account"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_text_username_login"
+            android:inputType="text"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            android:textColorHint="#8D6E63" />
+
+        <EditText
+            android:id="@+id/id_et_password_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:autofillHints="password"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_text_password_login"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="#8D6E63" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
