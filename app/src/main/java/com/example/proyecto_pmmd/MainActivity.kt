@@ -1,5 +1,6 @@
 package com.example.proyecto_pmmd
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,17 +17,35 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initEvent()
+        initBotones()
         cargarDatos()
     }
+
+    private fun initBotones() {
+        binding.idBtnLogout.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    /**
+     * Metodos utilizados para el CRUD (crear, editar y elimnar).
+     */
 
     private fun initEvent() {
         initRecyclerView()
         controller = Controller(this)
+        controller.setAdapter()
+        controller.loggOut()
     }
 
     private fun initRecyclerView() {
         binding.myRecyclerView.layoutManager = LinearLayoutManager(this)
     }
+
+    /**
+     * Metodos utilizados para el Login & Registro.
+     */
 
     private fun cargarDatos() {
         val bundle = intent.extras
