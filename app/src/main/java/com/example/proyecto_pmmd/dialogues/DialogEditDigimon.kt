@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.bumptech.glide.Glide
 import com.example.proyecto_pmmd.MainActivity
 import com.example.proyecto_pmmd.R
 import com.example.proyecto_pmmd.databinding.ActivityDialogDigimonBinding
@@ -14,10 +15,9 @@ import com.example.proyecto_pmmd.models.ArgumentsDigimon
 import com.example.proyecto_pmmd.models.Digimon
 
 class DialogEditDigimon(
-    private val digimonToUpdate: Digimon) : DialogFragment() {
+    private val digimonToUpdate: Digimon
+) : DialogFragment() {
     private lateinit var updateDigimonDialog: (Digimon) -> Unit
-    private lateinit var onDialogPositiveClick: (String, String, String, String) -> Unit
-    private lateinit var onDialogNegativeClick: (String) -> Unit
     private lateinit var activity: MainActivity
 
     private val ARGUMENT_NAME: String = ArgumentsDigimon.ARGUMENT_NAME
@@ -50,12 +50,6 @@ class DialogEditDigimon(
             builder.setPositiveButton("Aceptar")
             { dialog, id ->
                 val binding = ActivityDialogDigimonBinding.bind(viewDialogEditDigimon)
-                /*onDialogPositiveClick(
-                    binding.idDialogEtName.text.toString(),
-                    binding.idDialogEtLevel.text.toString(),
-                    binding.idDialogEtType.text.toString(),
-                    binding.idDialogEtAttribute.text.toString()
-                )*/
                 val updateDigimon = recoverDataLayout(viewDialogEditDigimon) as Digimon
                 if (
                     updateDigimon.name.isEmpty() ||
@@ -74,7 +68,6 @@ class DialogEditDigimon(
                 }
             }
             builder.setNegativeButton("Cancelar") { dialog, id ->
-                /*onDialogNegativeClick("Se ha cancelado")*/
                 getDialog()?.cancel()
             }
 
@@ -89,7 +82,7 @@ class DialogEditDigimon(
             binding.textLevel.text.toString(),
             binding.textType.text.toString(),
             binding.textAttribute.text.toString(),
-            binding.idImgPpal.toString()
+            binding.idImgPpal.isInLayout.toString()
         )
     }
 
@@ -100,6 +93,11 @@ class DialogEditDigimon(
             binding.textLevel.text = arguments.getString(ARGUMENT_NAME)
             binding.textType.text = arguments.getString(ARGUMENT_TYPE)
             binding.textAttribute.text = arguments.getString(ARGUMENT_ATTRIBUTE)
+
+            Glide.with(activity)
+                .load(digimonToUpdate.imagen)
+                .centerCrop()
+                .into(binding.idImgPpal)
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.proyecto_pmmd.controller
 
-import DialogRegister
+import com.example.proyecto_pmmd.dialogues.DialogRegister
+import android.app.AlertDialog
 import android.content.Context
 import android.widget.Toast
 import com.example.proyecto_pmmd.LoginActivity
@@ -53,6 +54,13 @@ class Controller(
         myActivity.binding.myRecyclerView.adapter = adapterDigimon
     }
 
+    private fun initOnClickListener() {
+        val myActivity = context as MainActivity
+        myActivity.binding.idBtnAdd.setOnClickListener {
+            addDigimon() //lambda que trata el evento del botón añadir. Inicia el Dialogo
+        }
+    }
+
     private fun addDigimon() {
         Toast.makeText(context, "Añadiremos un nuevo Digimon", Toast.LENGTH_SHORT).show()
         val dialog = DialogNewDigimon { digimon ->
@@ -60,13 +68,6 @@ class Controller(
         }
         val myActivity = context as MainActivity
         dialog.show(myActivity.supportFragmentManager, "Añadimos un nuevo Digimon")
-    }
-
-    private fun initOnClickListener() {
-        val myActivity = context as MainActivity
-        myActivity.binding.idBtnAdd.setOnClickListener {
-            addDigimon() //lambda que trata el evento del botón añadir. Inicia el Dialogo
-        }
     }
 
     private fun updateDigimon(pos: Int) {
@@ -89,14 +90,22 @@ class Controller(
         adapterDigimon.notifyItemInserted(listDigimons.lastIndex)
     }
 
-    private fun delDigimon(pos: Int) {
-        Toast.makeText(
-            context,
-            "Ha sido borrado el digimon con la posicion $pos",
-            Toast.LENGTH_SHORT
-        ).show()
+    private fun okOnDelDigimon(pos: Int) {
         listDigimons.removeAt(pos)
         adapterDigimon.notifyItemRemoved(pos)
+    }
+
+    private fun delDigimon(pos: Int) {
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("Confirmación")
+            .setMessage("¿Estás seguro de que deseas eliminar este Digimon?")
+            .setPositiveButton("Eliminar") { _, _ ->
+                okOnDelDigimon(pos)
+            }
+            .setNegativeButton("Cancelar", null)
+            .create()
+
+        dialog.show()
     }
 
     /**
@@ -123,9 +132,9 @@ class Controller(
     }
 
     private fun initDialogRegister(lA: LoginActivity) {
-        val dialogRegister =
-            DialogRegister(this, { fullname, email, username, password, confirmPassword ->
-                renderizeRegister(fullname, email, username, password, confirmPassword)
+        val dialogRegister = DialogRegister(this,
+            { fullname, email, username, password, confirmPassword ->
+                renderizeRegister(fullname, email, username, password)
             }, {
                 msCancel(it)
             })
@@ -136,14 +145,12 @@ class Controller(
         fullname: String,
         email: String,
         username: String,
-        password: String,
-        confirmPassword: String
-    ) {
+        password: String) {
         val registerAct = context as LoginActivity
         Toast.makeText(
-            context, "Fullname: $fullname, " +
-                    "Email: $email, " +
-                    "Username: $username, Password: $password", Toast.LENGTH_SHORT
+            context,
+            "Fullname: $fullname, Email: $email, Username: $username, Password: $password",
+            Toast.LENGTH_SHORT
         ).show()
     }
 

@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.proyecto_pmmd.MainActivity
 import com.example.proyecto_pmmd.R
@@ -29,9 +30,8 @@ class DialogLogin(
                 val binding = ActivityIntentLoginBinding.bind(viewDialogLogin)
                 if (isValidUser(
                         binding.idEtUsernameLogin.text.toString(),
-                        binding.idEtPasswordLogin.text.toString()
-                    )
-                ) {
+                        binding.idEtPasswordLogin.text.toString())
+                    ) {
                     onDialogPositiveClick(
                         binding.idEtUsernameLogin.text.toString(),
                         binding.idEtPasswordLogin.text.toString()
@@ -42,8 +42,7 @@ class DialogLogin(
                     intentLogin.putExtras(bundle)
                     startActivity(intentLogin)
                 } else {
-                    binding.idEtUsernameLogin.error = "Usuario incorrecto"
-                    binding.idEtPasswordLogin.error = "Contraseña incorrecta"
+                    Toast.makeText(context, "El usuario es incorrecto", Toast.LENGTH_SHORT).show()
                 }
             }
             builder.setNegativeButton("Cancelar") { dialog, id ->
@@ -55,8 +54,6 @@ class DialogLogin(
     }
 
     private fun isValidUser(username: String, password: String): Boolean {
-        // Aquí puedes cambiar los valores de "admin" y "1234" a los valores deseados
-        // para el usuario preestablecido
         return username == "jgomlin" && password == "dam2324"
     }
 }

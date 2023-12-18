@@ -25,12 +25,6 @@ class DialogNewDigimon(
 
             builder.setPositiveButton("Añadir") { dialog, id ->
                 val binding = ActivityDialogDigimonBinding.bind(viewDialogNewDigimon)
-                /*onDialogPositiveClick(
-                    binding.idDialogEtName.text.toString(),
-                    binding.idDialogEtLevel.text.toString(),
-                    binding.idDialogEtType.text.toString(),
-                    binding.idDialogEtAttribute.text.toString()
-                )*/
                 val newDigimon = recoverDataLayout(viewDialogNewDigimon) as Digimon
                 if (
                     newDigimon.name.isEmpty() ||
@@ -38,18 +32,14 @@ class DialogNewDigimon(
                     newDigimon.type.isEmpty() ||
                     newDigimon.attribute.isEmpty()
                 ) {
-                    Toast.makeText(
-                        activity,
-                        "No puede haber ningun campo vacio",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(activity,"No puede haber ningun campo vacio",Toast.LENGTH_SHORT).show()
                     getDialog()?.cancel()
                 } else {
                     onNewDigimonDialog(newDigimon)
                 }
             }
             builder.setNegativeButton("Cancelar") { dialog, id ->
-                /*onDialogNegativeClick("Se ha cancelado")*/
+                Toast.makeText(context, "Has cancelado la accion", Toast.LENGTH_SHORT).show()
                 getDialog()?.cancel()
             }
 
@@ -63,8 +53,8 @@ class DialogNewDigimon(
             binding.idDialogEtName.text.toString(),
             binding.idDialogEtLevel.text.toString(),
             binding.idDialogEtType.text.toString(),
-            binding.idDialogEtAttribute.toString(),
-            binding.idImgDialog.toString()
+            binding.idDialogEtAttribute.text.toString(),
+            binding.idImgDialog.id.toString()
         )
     }
 }
