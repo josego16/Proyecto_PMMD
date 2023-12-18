@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Proyecto_PMMD</string>
     <string name="text_started_title">BIENVENIDO.</string>
+    <!--Description-->
     <string name="description_img">imagen login</string>
+    <string name="descripcion_add">descripcion boton</string>
+    <string name="descripcion_img">descripcion imagen</string>
+    <string name="descripcion_edit">descripcion boton</string>
+    <string name="descripcion_delete">descripcion boton</string>
     <!--Login fragment-->
     <string name="text_login_title">Iniciar Sesion.</string>
     <string name="edit_text_username_login">Introduce tu email o usuario</string>
@@ -15,12 +20,14 @@
     <string name="edit_text_username_register">Introduce tu usuario</string>
     <string name="edit_text_password_register">Introduce tu contraseña</string>
     <string name="edit_text_confirm_password_register">Confirma tu contraseña</string>
-    <string name="descripcion_add">descripcion boton</string>
+    <!--Recycler View Digimon-->
+    <string name="text_title_dialog">Editar/Nuevo Digimon</string>
+    <string name="id_text_dialog_level">Introduce el Rango del Digimon</string>
+    <string name="id_text_dialog_type">Introduce el Tipo del Digimon</string>
+    <string name="id_text_dialog_attribute">Introduce el Atributo del Digimon</string>
     <string name="txt_name">Nombre Digimon</string>
-    <string name="descripcion_img">descripcion imagen</string>
     <string name="txt_Level">Level</string>
     <string name="txt_Type">Type</string>
     <string name="txt_Attribute">Attribute</string>
-    <string name="descripcion_edit">descripcion boton</string>
-    <string name="descripcion_delete">descripcion boton</string>
+    <string name="id_text_dialog_name">Introduce el Nombre del Digimon</string>
 </resources>

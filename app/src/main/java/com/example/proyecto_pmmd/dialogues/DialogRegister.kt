@@ -1,9 +1,8 @@
-package com.example.proyecto_pmmd.dialogues
-
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.proyecto_pmmd.MainActivity
 import com.example.proyecto_pmmd.R
@@ -11,7 +10,7 @@ import com.example.proyecto_pmmd.controller.Controller
 import com.example.proyecto_pmmd.databinding.ActivityIntentRegisterBinding
 
 class DialogRegister(
-    val controller: Controller,
+    private val controller: Controller,
     val onDialogPositiveClick: (String, String, String, String, String) -> Unit,
     val onDialogNegativeClick: (String) -> Unit
 ) : DialogFragment() {
@@ -28,27 +27,29 @@ class DialogRegister(
             builder.setPositiveButton("Guardar") { dialog, id ->
                 // Send the positive button event back to the host activity
                 val binding = ActivityIntentRegisterBinding.bind(viewDialogRegister)
-                onDialogPositiveClick(
-                    binding.idEtFullNameRegister.text.toString(),
-                    binding.idEtEmailRegister.text.toString(),
-                    binding.idEtUsernameRegister.text.toString(),
-                    binding.idEtPasswordRegister.text.toString(),
-                    binding.idEtConfirmPasswordRegister.text.toString()
-                )
-                val bundle = Bundle()
-                bundle.putString("fullname", binding.idEtFullNameRegister.text.toString())
-                bundle.putString("email", binding.idEtEmailRegister.text.toString())
-                bundle.putString("username", binding.idEtUsernameRegister.text.toString())
-                bundle.putString("password", binding.idEtPasswordRegister.text.toString())
-                bundle.putString(
-                    "confirmPassword",
-                    binding.idEtConfirmPasswordRegister.text.toString()
-                )
-                intentRegister.putExtras(bundle)
+                val fullName = binding.idEtFullNameRegister.text.toString()
+                val email = binding.idEtEmailRegister.text.toString()
+                val username = binding.idEtUsernameRegister.text.toString()
+                val password = binding.idEtPasswordRegister.text.toString()
+                val confirmPassword = binding.idEtConfirmPasswordRegister.text.toString()
 
-                startActivity(intentRegister)
+                if (username.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty() && password == confirmPassword) {
+                    onDialogPositiveClick(fullName, email, username, password, confirmPassword)
+                    val bundle = Bundle()
+                    bundle.putString("fullname", fullName)
+                    bundle.putString("email", email)
+                    bundle.putString("username", username)
+                    bundle.putString("password", password)
+                    bundle.putString("confirmPassword", confirmPassword)
+                    intentRegister.putExtras(bundle)
+
+                    startActivity(intentRegister)
+                } else {
+                    // Inform the user that the data is invalid
+                    Toast.makeText(context, "Datos inválidos", Toast.LENGTH_SHORT).show()
+                }
             }
-                .setNegativeButton(
+                builder.setNegativeButton(
                     "Cancelar"
                 ) { dialog, id ->
                     // Send the negative button event back to the host activity

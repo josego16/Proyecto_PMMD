@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         initRecyclerView()
         controller = Controller(this)
         controller.setAdapter()
-        controller.loggOut()
+        /*controller.loggOut()*/
     }
 
     private fun initRecyclerView() {

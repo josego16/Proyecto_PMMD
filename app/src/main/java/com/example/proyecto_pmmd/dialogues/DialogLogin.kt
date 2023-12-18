@@ -16,40 +16,47 @@ class DialogLogin(
     val onDialogNegativeClick: (String) -> Unit
 ) : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        //Tengo que cambiar activity por myActivity
         return activity?.let {
-            // Build the dialog and set up the button click handlers
             val intentLogin = Intent(context, MainActivity::class.java)
             val builder = AlertDialog.Builder(it)
             val inflater = requireActivity().layoutInflater
 
-            // Inflate and set the layout for the dialog
-            // Pass null as the parent view because its going in the dialog layout
             val viewDialogLogin = inflater.inflate(R.layout.activity_intent_login, null)
             builder.setView(viewDialogLogin)
 
             builder.setMessage("Datos Login")
             builder.setPositiveButton("Guardar") { dialog, id ->
-                // Send the positive button event back to the host activity
                 val binding = ActivityIntentLoginBinding.bind(viewDialogLogin)
-                onDialogPositiveClick(
-                    binding.idEtUsernameLogin.text.toString(),
-                    binding.idEtPasswordLogin.text.toString()
-                )
-                val bundle = Bundle()
-                bundle.putString("username", binding.idEtUsernameLogin.text.toString())
-                bundle.putString("Password", binding.idEtPasswordLogin.text.toString())
-                intentLogin.putExtras(bundle)
-                startActivity(intentLogin)
-            }
-                .setNegativeButton(
-                    "Cancelar"
-                ) { dialog, id ->
-                    // Send the negative button event back to the host activity
-                    onDialogNegativeClick("Se ha cancelado")
+                if (isValidUser(
+                        binding.idEtUsernameLogin.text.toString(),
+                        binding.idEtPasswordLogin.text.toString()
+                    )
+                ) {
+                    onDialogPositiveClick(
+                        binding.idEtUsernameLogin.text.toString(),
+                        binding.idEtPasswordLogin.text.toString()
+                    )
+                    val bundle = Bundle()
+                    bundle.putString("username", binding.idEtUsernameLogin.text.toString())
+                    bundle.putString("Password", binding.idEtPasswordLogin.text.toString())
+                    intentLogin.putExtras(bundle)
+                    startActivity(intentLogin)
+                } else {
+                    binding.idEtUsernameLogin.error = "Usuario incorrecto"
+                    binding.idEtPasswordLogin.error = "Contraseña incorrecta"
                 }
+            }
+            builder.setNegativeButton("Cancelar") { dialog, id ->
+                onDialogNegativeClick("Se ha cancelado")
+            }
 
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
+    }
+
+    private fun isValidUser(username: String, password: String): Boolean {
+        // Aquí puedes cambiar los valores de "admin" y "1234" a los valores deseados
+        // para el usuario preestablecido
+        return username == "jgomlin" && password == "dam2324"
     }
 }

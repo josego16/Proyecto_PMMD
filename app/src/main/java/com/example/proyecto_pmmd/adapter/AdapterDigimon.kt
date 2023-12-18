@@ -9,7 +9,8 @@ import com.example.proyecto_pmmd.models.Digimon
 class AdapterDigimon(
     private var listaDigimons: MutableList<Digimon>,
     private var deleteOnClick: (Int) -> Unit,
-    private var updateOnCLick: (Int) -> Unit) : RecyclerView.Adapter<ViewHDigimon>() {
+    private var updateOnCLick: (Int) -> Unit
+) : RecyclerView.Adapter<ViewHDigimon>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHDigimon {
         val layoutInflater = LayoutInflater.from(parent.context)
         val layoutItemDigi = R.layout.itemlist_cardview
@@ -17,8 +18,8 @@ class AdapterDigimon(
         return ViewHDigimon(
             layoutInflater.inflate(layoutItemDigi, parent, false),
             deleteOnClick,
-            updateOnCLick
-        )
+            updateOnCLick,
+            )
     }
 
     override fun onBindViewHolder(holder: ViewHDigimon, position: Int) {

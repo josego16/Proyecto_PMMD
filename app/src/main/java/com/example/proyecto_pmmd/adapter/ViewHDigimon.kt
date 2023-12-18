@@ -3,13 +3,14 @@ package com.example.proyecto_pmmd.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.proyecto_pmmd.databinding.ActivityMainBinding
 import com.example.proyecto_pmmd.databinding.ItemlistCardviewBinding
 import com.example.proyecto_pmmd.models.Digimon
 
 class ViewHDigimon(
     view: View,
     var deleteOnClick: (Int) -> Unit,
-    var updateOnClick: (Int) -> Unit
+    var updateOnClick: (Int) -> Unit,
 ) : RecyclerView.ViewHolder(view) {
     private var binding: ItemlistCardviewBinding
 
