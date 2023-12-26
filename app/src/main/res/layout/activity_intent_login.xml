@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_light"
-    tools:context=".fragments.ActivityIntentLogin">
+    tools:context=".login_register.ActivityIntentLogin">
 
     <LinearLayout
         android:id="@+id/id_layout_fragment_login"
@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:autofillHints=""
-            android:drawableStart="@drawable/ic_circle_account"
+            android:drawableStart="@drawable/icon_circle_account"
             android:drawablePadding="10dp"
             android:hint="@string/edit_text_username_login"
             android:inputType="text"
@@ -50,7 +50,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:autofillHints="password"
-            android:drawableStart="@drawable/ic_lock"
+            android:drawableStart="@drawable/icon_lock"
             android:drawablePadding="10dp"
             android:hint="@string/edit_text_password_login"
             android:inputType="textPassword"

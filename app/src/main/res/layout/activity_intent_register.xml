@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_light"
-    tools:context=".fragments.ActivityIntentRegister">
+    tools:context=".login_register.ActivityIntentRegister">
 
     <LinearLayout
         android:id="@+id/id_layout_fragment_register"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:autofillHints=""
-            android:drawableStart="@drawable/ic_account"
+            android:drawableStart="@drawable/icon_account"
             android:drawablePadding="10dp"
             android:hint="@string/edit_text_fullname_register"
             android:inputType="text"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:autofillHints="emailAddress"
-            android:drawableStart="@drawable/ic_email"
+            android:drawableStart="@drawable/icon_email"
             android:drawablePadding="10dp"
             android:hint="@string/edit_text_email_register"
             android:inputType="textEmailAddress"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:autofillHints="emailAddress"
-            android:drawableStart="@drawable/ic_circle_account"
+            android:drawableStart="@drawable/icon_circle_account"
             android:drawablePadding="10dp"
             android:hint="@string/edit_text_username_register"
             android:inputType="textEmailAddress"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:autofillHints="password"
-            android:drawableStart="@drawable/ic_lock"
+            android:drawableStart="@drawable/icon_lock"
             android:drawablePadding="10dp"
             android:hint="@string/edit_text_password_register"
             android:inputType="textPassword"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:autofillHints="password"
-            android:drawableStart="@drawable/ic_lock"
+            android:drawableStart="@drawable/icon_lock"
             android:drawablePadding="10dp"
             android:hint="@string/edit_text_confirm_password_register"
             android:inputType="textPassword"

@@ -16,10 +16,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".fragments.ActivityIntentRegister"
+            android:name=".login_register.ActivityIntentRegister"
             android:exported="false" />
         <activity
-            android:name=".fragments.ActivityIntentLogin"
+            android:name=".login_register.ActivityIntentLogin"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

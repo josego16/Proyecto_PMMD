@@ -4,71 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="20dp"
+    android:background="@drawable/digimon_img"
+    android:padding="10dp"
     tools:context=".LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/id_layout_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tv_started_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="top"
             android:layout_margin="20dp"
             android:gravity="center"
             android:text="@string/text_started_title"
-            android:textColor="#795548"
+            android:textColor="#212121"
             android:textSize="36sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/id_img_illustrated"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_margin="16dp"
-            android:contentDescription="@string/description_img"
-            android:src="@drawable/illustration_started"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_started_title" />
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img_icon_login" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/id_btn_login"
-            style="@style/ButtonWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/text_btn_login"
-            android:textColor="#009688"
-            app:layout_constraintBottom_toTopOf="@id/id_btn_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_img_illustrated" />
+            android:textColor="#00695C" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/id_btn_register"
-            style="@style/ButtonWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/text_btn_register"
-            android:textColor="#009688"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_btn_login" />
+            android:textColor="#00695C" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

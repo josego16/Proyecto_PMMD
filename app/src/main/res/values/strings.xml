@@ -30,4 +30,9 @@
     <string name="txt_Type">Type</string>
     <string name="txt_Attribute">Attribute</string>
     <string name="id_text_dialog_name">Introduce el Nombre del Digimon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_home">BIENVENIDO A DIGIMON</string>
+    <string name="item_title_home">Home</string>
+    <string name="item_title_digimon">Digimon</string>
 </resources>

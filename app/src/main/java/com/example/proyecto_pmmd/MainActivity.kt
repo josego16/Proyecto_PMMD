@@ -1,66 +1,64 @@
 package com.example.proyecto_pmmd
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.proyecto_pmmd.controller.Controller
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.proyecto_pmmd.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var navController: NavController
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var binding: ActivityMainBinding
-    private lateinit var controller: Controller
-    private lateinit var handler: Handler
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initHandler()
-        initEvent()
-        initBotones()
         cargarDatos()
+
+        val toolbar: Toolbar = binding.idToolbar
+        setSupportActionBar(toolbar)
+
+        navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    private fun initHandler() {
-        handler = Handler(Looper.getMainLooper())
-        binding.progressBar.visibility = View.VISIBLE
-        binding.idRecyclerView.visibility = View.GONE
-
-        handler.postDelayed({
-            binding.progressBar.visibility = View.GONE
-            binding.idRecyclerView.visibility = View.VISIBLE
-        }, 3000)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
     }
 
-    /**
-     * Metodos utilizados para el CRUD (crear, editar y elimnar).
-     */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.id_toolbar_home -> {
+                navController.navigate(R.id.homeFragment)
+                true
+            }
 
-    private fun initEvent() {
-        initRecyclerView()
-        controller = Controller(this)
-        controller.setAdapter()
-        /*controller.loggOut()*/
-    }
+            R.id.id_toolbar_digimon -> {
+                navController.navigate(R.id.recyclerFragment)
+                true
+            }
 
-    private fun initBotones() {
-        binding.idBtnLogout.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun initRecyclerView() {
-        binding.myRecyclerView.layoutManager = LinearLayoutManager(this)
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-    /**
-     * Metodos utilizados para el Login & Registro.
-     */
 
     private fun cargarDatos() {
         val bundle = intent.extras

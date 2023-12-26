@@ -13,8 +13,6 @@ import com.example.proyecto_pmmd.models.Digimon
 class DialogNewDigimon(
     val onNewDigimonDialog: (Digimon) -> Unit
 ) : DialogFragment() {
-    private lateinit var onDialogPositiveClick: (String, String, String, String) -> Unit
-    private lateinit var onDialogNegativeClick: (String) -> Unit
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(activity)

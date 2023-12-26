@@ -8,6 +8,6 @@ class Digimon(
     var imagen: String
 ) {
     override fun toString(): String {
-        return "Digimon(name='$name', level='$level', type='$type', attribute='$attribute')"
+        return "Digimon(name='$name', level='$level', type='$type', attribute='$attribute', imagen='$imagen')"
     }
 }

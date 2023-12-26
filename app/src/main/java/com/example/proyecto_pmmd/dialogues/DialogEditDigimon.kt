@@ -15,8 +15,7 @@ import com.example.proyecto_pmmd.models.ArgumentsDigimon
 import com.example.proyecto_pmmd.models.Digimon
 
 class DialogEditDigimon(
-    private val digimonToUpdate: Digimon
-) : DialogFragment() {
+    private val digimonToUpdate: Digimon) : DialogFragment() {
     private lateinit var updateDigimonDialog: (Digimon) -> Unit
     private lateinit var activity: MainActivity
 

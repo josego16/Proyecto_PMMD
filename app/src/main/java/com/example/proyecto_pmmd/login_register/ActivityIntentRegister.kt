@@ -1,4 +1,4 @@
-package com.example.proyecto_pmmd.fragments
+package com.example.proyecto_pmmd.login_register
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

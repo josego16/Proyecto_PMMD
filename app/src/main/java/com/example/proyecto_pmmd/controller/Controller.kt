@@ -1,6 +1,5 @@
 package com.example.proyecto_pmmd.controller
 
-import com.example.proyecto_pmmd.dialogues.DialogRegister
 import android.app.AlertDialog
 import android.content.Context
 import android.widget.Toast
@@ -8,22 +7,21 @@ import com.example.proyecto_pmmd.LoginActivity
 import com.example.proyecto_pmmd.MainActivity
 import com.example.proyecto_pmmd.adapter.AdapterDigimon
 import com.example.proyecto_pmmd.dao.DaoDigimons
-import com.example.proyecto_pmmd.databinding.ActivityMainBinding
+import com.example.proyecto_pmmd.databinding.FragmentRecyclerBinding
 import com.example.proyecto_pmmd.dialogues.DialogLogin
 import com.example.proyecto_pmmd.dialogues.DialogNewDigimon
+import com.example.proyecto_pmmd.dialogues.DialogRegister
 import com.example.proyecto_pmmd.models.Digimon
 
 class Controller(
-    private var context: Context
-) {
+    private var context: Context,
+    private var binding: FragmentRecyclerBinding) {
     private lateinit var listDigimons: MutableList<Digimon>
     private lateinit var adapterDigimon: AdapterDigimon
-    private lateinit var binding: ActivityMainBinding
 
     /**
      * Metodos utilizados para el CRUD (crear, editar y elimnar).
      */
-
     init {
         initData()
     }
@@ -40,7 +38,6 @@ class Controller(
     }
 
     fun setAdapter() {
-        val myActivity = context as MainActivity
         adapterDigimon = AdapterDigimon(
             listDigimons,
             { pos ->
@@ -51,13 +48,12 @@ class Controller(
             }
         )
         initOnClickListener()
-        myActivity.binding.myRecyclerView.adapter = adapterDigimon
+        binding.myRecyclerView.adapter = adapterDigimon
     }
 
     private fun initOnClickListener() {
-        val myActivity = context as MainActivity
-        myActivity.binding.idBtnAdd.setOnClickListener {
-            addDigimon() //lambda que trata el evento del botón añadir. Inicia el Dialogo
+        binding.idBtnAdd.setOnClickListener {
+            addDigimon()
         }
     }
 
@@ -145,7 +141,8 @@ class Controller(
         fullname: String,
         email: String,
         username: String,
-        password: String) {
+        password: String
+    ) {
         val registerAct = context as LoginActivity
         Toast.makeText(
             context,
