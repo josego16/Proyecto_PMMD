@@ -18,8 +18,17 @@
         android:id="@+id/id_btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
+        android:layout_gravity="end|top"
         android:layout_margin="10dp"
         android:contentDescription="@string/descripcion_add"
         android:src="@drawable/icon_add" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/id_btn_recycler_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/descripcion_btn"
+        android:src="@drawable/icon_next" />
 </FrameLayout>

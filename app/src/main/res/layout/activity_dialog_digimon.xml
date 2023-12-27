@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050">
+        app:layout_constraintVertical_bias="0.5">
 
         <TextView
             android:id="@+id/id_text_title_dialog"
@@ -32,7 +32,8 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/descripcion_img" />
+            android:contentDescription="@string/descripcion_img"
+            android:src="@drawable/digimonmonster" />
 
         <EditText
             android:id="@+id/id_dialog_et_name"
