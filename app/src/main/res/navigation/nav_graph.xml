@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.proyecto_pmmd.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/recyclerFragment"
         android:name="com.example.proyecto_pmmd.fragments.RecyclerFragment"
         android:label="fragment_recycler"
-        tools:layout="@layout/fragment_recycler" >
+        tools:layout="@layout/fragment_recycler">
         <action
             android:id="@+id/action_recyclerFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -27,12 +27,47 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.proyecto_pmmd.fragments.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/fragment_details">
         <action
             android:id="@+id/action_detailsFragment_to_recyclerFragment"
             app:destination="@id/recyclerFragment" />
         <action
             android:id="@+id/action_detailsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_data1Fragment"
+            app:destination="@id/data1Fragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_data2Fragment"
+            app:destination="@id/data2Fragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_data3Fragment"
+            app:destination="@id/data3Fragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_data4Fragment"
+            app:destination="@id/data4Fragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/data1Fragment"
+        android:name="com.example.proyecto_pmmd.fragments.Data1Fragment"
+        android:label="fragment_data1"
+        tools:layout="@layout/fragment_data1" />
+    <fragment
+        android:id="@+id/data2Fragment"
+        android:name="com.example.proyecto_pmmd.fragments.Data2Fragment"
+        android:label="fragment_data2"
+        tools:layout="@layout/fragment_data2" />
+    <fragment
+        android:id="@+id/data3Fragment"
+        android:name="com.example.proyecto_pmmd.fragments.Data3Fragment"
+        android:label="fragment_data3"
+        tools:layout="@layout/fragment_data3" />
+    <fragment
+        android:id="@+id/data4Fragment"
+        android:name="com.example.proyecto_pmmd.fragments.Data4Fragment"
+        android:label="fragment_data4"
+        tools:layout="@layout/fragment_data4" />
 </navigation>

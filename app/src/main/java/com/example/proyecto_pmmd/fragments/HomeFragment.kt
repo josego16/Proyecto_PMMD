@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -31,8 +33,48 @@ class HomeFragment : Fragment() {
             navController = navHost!!.findNavController()
 
             binding.idBtnHomeNext.setOnClickListener {
-                navController.navigate(R.id.action_homeFragment_to_detailsFragment)
+                val spinnerName = getSpinnerName()
+                navController.navigate(
+                    HomeFragmentDirections.actionHomeFragmentToDetailsFragment(name = spinnerName)
+                )
             }
+            val listDigimons =
+                arrayOf("", "Takutoumon", "Shortmon", "ClearAgumon", "Loogamon", "Chamblemon")
+            val adapter = arrayAdapter(listDigimons)
+            binding.idSpHome.adapter = adapter
+
+            binding.idSpHome.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                    }
+
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                    }
+                }
+        }
+    }
+
+    private fun getSpinnerName(): String {
+        val position = binding.idSpHome.selectedItemPosition
+        return if (position != 0) {
+            binding.idSpHome.getItemAtPosition(position).toString()
+        } else {
+            "No digimon selected"
+        }
+    }
+
+    private fun arrayAdapter(listDigimons: Array<String>): ArrayAdapter<String> {
+        return ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            listDigimons
+        ).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         }
     }
 }

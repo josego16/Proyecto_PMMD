@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|start"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="150dp"
         android:orientation="vertical">
 
         <TextView
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="150dp"
         android:orientation="vertical">
 
         <TextView
@@ -71,7 +71,7 @@
         android:layout_gravity="center|end"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="150dp"
         android:orientation="vertical"
         android:weightSum="2">
 
@@ -98,7 +98,7 @@
         android:layout_gravity="center|bottom"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="310dp"
         android:orientation="vertical">
 
         <TextView
@@ -116,5 +116,30 @@
             android:contentDescription="@string/descripcion_btn"
             android:src="@drawable/icon_data4"
             app:maxImageSize="40dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/id_tv_details_enunciado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/text_spinnerString_details"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/id_tv_details_respuesta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp" />
     </LinearLayout>
 </FrameLayout>

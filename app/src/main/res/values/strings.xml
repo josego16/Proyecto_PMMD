@@ -43,5 +43,10 @@
     <string name="text_name_data4">X-EVOLUTION MONSTERS</string>
     <string name="text_home_eleccion">Pulsa para acceder a los detalles</string>
     <string name="text_btn_toDetails">Go to details</string>
+    <string name="text_spinnerString_details">"El digimon se llama: "</string>
+    <string name="text_description_data1">Un día, un virus artificialmente inteligente comenzó a propagarse entre los ordenadores del mundo.\nCambió su forma a medida que viajaba por la red, y evolucionó hasta convertirse en las formas de vida conocidas como Monstruos Digitales o Digimon.</string>
+    <string name="text_description_data2">Los Digimon nacen de los Digi-Huevos.\nLos Digimon crecen cuando consumen programas y datos, o cuando triunfan en la batalla, ¡lo que les permite Digivolucionar!\nAl final mueren de viejos y vuelven a ser Digi-Huevos.</string>
+    <string name="text_description_data3">Los Digimon viven en un mundo conocido como el Mundo Digital.\nEl Mundo Digital es un mundo de realidad virtual construido en la red.\nEn muchos aspectos es muy similar al mundo real, con atmósfera, vastos océanos y formas terrestres como continentes e islas.</string>
+    <string name="text_description_data4">Para escapar de la amenaza del Programa X, algunos Digimon introducen el Anticuerpo-X en su DigiCore, obteniendo una Digivolución única conocida como Evolución-X y convirtiéndose en \"Digimon Anticuerpo-X\".\nEn la actualidad, se han confirmado más de 90 Digimon X-Anticuerpo.</string>
 
 </resources>

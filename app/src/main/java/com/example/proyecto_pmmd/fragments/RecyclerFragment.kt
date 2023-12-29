@@ -33,10 +33,6 @@ class RecyclerFragment : Fragment() {
             .findFragmentById(R.id.nav_host_fragment)
         navhost.let {
             navController = navhost!!.findNavController()
-
-            binding.idBtnRecyclerNext.setOnClickListener {
-                navController.navigate(R.id.action_recyclerFragment_to_detailsFragment)
-            }
         }
     }
 
